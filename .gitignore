@@ -1,0 +1,6 @@
+#pdflatex
+*.aux
+*.pdf
+*.log
+#VIM
+*.swp
