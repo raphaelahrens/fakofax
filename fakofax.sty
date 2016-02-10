@@ -3,13 +3,25 @@
             paper=a5paper,
             layoutheight =171mm,layoutwidth  = 95mm,
             layoutvoffset= 10mm,layouthoffset= 0mm,
-            left=3mm, right=3mm, top=5mm, bottom=5mm,
+            left=3mm, right=5mm, top=3mm, bottom=3mm,
+            headsep=5mm, footskip=5mm,
             includeheadfoot,
             asymmetric,
-            bindingoffset=12mm,
+            bindingoffset=11mm,
             showcrop=true]{geometry}
 \RequirePackage{amsmath}
-\RequirePackage{scrlayer-scrpage}
+\RequirePackage[automark]{scrlayer-scrpage}
+
+\clearpairofpagestyles
+\cfoot{\scriptsize\today}
+% Even page header
+\lehead{\footnotesize\headmark}
+\lefoot[\pagemark]{\footnotesize\pagemark}
+\chead{\tiny Raphael Ahrens}
+% Odd page header
+\rohead{\footnotesize\headmark}
+\rofoot[\pagemark]{\footnotesize\pagemark}
+\pagestyle{scrheadings}
 
 
 \makeatletter
@@ -66,3 +78,4 @@
   contents={\ifPunchmark\leftmarkline{\punchmarklength}\fi}
 }]{punchmark}
 \AddLayersToPageStyle{@everystyle@}{firstmark,secondmark,thirdmark,foursmark,fivesmark,sixedmark,punchmark}
+\date{\today}

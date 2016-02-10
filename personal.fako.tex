@@ -1,177 +1,21 @@
-\documentclass[twoside]{article}
-
-
-\usepackage[%paperheight  =210mm,paperwidth   =148mm,  % or: "paper=a5paper"
-            paper=a5paper,
-            layoutheight =171mm,layoutwidth  = 95mm,
-            layoutvoffset= 10mm,layouthoffset= 0mm,
-            left=3mm, right=3mm, top=5mm, bottom=5mm,
-            includeheadfoot,
-            asymmetric,
-            bindingoffset=12mm,
-            showcrop=true]{geometry}
-\usepackage{amsmath}
-\usepackage{scrlayer-scrpage}
-
-
-\makeatletter
-\newlength\hcorr
-\setlength\hcorr{\paperwidth}
-\addtolength\hcorr{-\Gm@layoutwidth}
-\makeatother
-
-\geometry{layouthoffset=.5\hcorr,
-          layoutvoffset=10mm}
-
-\newcommand\foldmarklength{3mm}
-\newcommand\punchmarklength{4mm}
-\newcommand\markhpos{3.5mm}
-\newcommand\markthickness{.2mm}
-
-\newcommand\leftmarkline[1]{%
-  
-  \parbox[c][\layerheight][b]{\layerwidth}{%
-   \hspace*{.5\hcorr}\hspace*{\markhpos}\rule{#1}{\markthickness}%
-}}
-\newif\ifFoldmark\Foldmarktrue
-\newif\ifPunchmark\Punchmarktrue
-\DeclareNewLayer[{
-  background,
-  innermargin,
-  oddpage,% in twoside mode only on odd pages!
-  height=10mm+22mm,
-  contents={\ifFoldmark\leftmarkline{\foldmarklength}\fi}
-}]{firstmark}
-\DeclareNewLayer[{
-  clone=firstmark,
-  height=10mm+22mm+19mm
-}]{secondmark}
-\DeclareNewLayer[{
-  clone=firstmark,
-  height=10mm+22mm+19mm+19mm
-}]{thirdmark}
-\DeclareNewLayer[{
-  clone=firstmark,
-  height=10mm+22mm+19mm+19mm+51mm
-}]{foursmark}
-\DeclareNewLayer[{
-  clone=firstmark,
-  height=10mm+22mm+19mm+19mm+51mm+19mm
-}]{fivesmark}
-\DeclareNewLayer[{
-  clone=firstmark,
-  height=10mm+22mm+19mm+19mm+51mm+19mm+19mm
-}]{sixedmark}
-\DeclareNewLayer[{
-  clone=firstmark,
-  height=95.5mm,
-  contents={\ifPunchmark\leftmarkline{\punchmarklength}\fi}
-}]{punchmark}
-\AddLayersToPageStyle{@everystyle@}{firstmark,secondmark,thirdmark,foursmark,fivesmark,sixedmark,punchmark}
-\title{\LaTeX}
-\date{}
+\documentclass[8pt, twoside]{extarticle}
+\usepackage{fakofax}
+\usepackage[german]{isodate}
+\usepackage{lipsum}
+\usepackage{listings}
 \begin{document}
-  \maketitle
-  \LaTeX{} is a document preparation system for the \TeX{}
-  typesetting program. It offers programmable desktop
-  publishing features and extensive facilities for
-  automating most aspects of typesetting and desktop
-  publishing, including numbering and cross-referencing,
-  tables and figures, page layout, bibliographies, and
-  much more. \LaTeX{} was originally written in 1984 by
-  Leslie Lamport and has become the dominant method for
-  using \TeX; few people write in plain \TeX{} anymore.
-  The current version is \LaTeXe.
+\section{TEST}
+  bla
 
-  % This is a comment, not shown in final output.
-  % The following shows typesetting power of LaTeX:
-  \begin{align}
-    E_0 &= mc^2                              \\
-    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
-  \LaTeX{} is a document preparation system for the \TeX{}
-  typesetting program. It offers programmable desktop
-  publishing features and extensive facilities for
-  automating most aspects of typesetting and desktop
-  publishing, including numbering and cross-referencing,
-  tables and figures, page layout, bibliographies, and
-  much more. \LaTeX{} was originally written in 1984 by
-  Leslie Lamport and has become the dominant method for
-  using \TeX; few people write in plain \TeX{} anymore.
-  The current version is \LaTeXe.
 
-  % This is a comment, not shown in final output.
-  % The following shows typesetting power of LaTeX:
-  \begin{align}
-    E_0 &= mc^2                              \\
-    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
-  \LaTeX{} is a document preparation system for the \TeX{}
-  typesetting program. It offers programmable desktop
-  publishing features and extensive facilities for
-  automating most aspects of typesetting and desktop
-  publishing, including numbering and cross-referencing,
-  tables and figures, page layout, bibliographies, and
-  much more. \LaTeX{} was originally written in 1984 by
-  Leslie Lamport and has become the dominant method for
-  using \TeX; few people write in plain \TeX{} anymore.
-  The current version is \LaTeXe.
+  \begin{lstlisting}[language=sh]
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)
+  \end{lstlisting}
 
-  % This is a comment, not shown in final output.
-  % The following shows typesetting power of LaTeX:
-  \begin{align}
-    E_0 &= mc^2                              \\
-    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
-  \LaTeX{} is a document preparation system for the \TeX{}
-  typesetting program. It offers programmable desktop
-  publishing features and extensive facilities for
-  automating most aspects of typesetting and desktop
-  publishing, including numbering and cross-referencing,
-  tables and figures, page layout, bibliographies, and
-  much more. \LaTeX{} was originally written in 1984 by
-  Leslie Lamport and has become the dominant method for
-  using \TeX; few people write in plain \TeX{} anymore.
-  The current version is \LaTeXe.
-
-  % This is a comment, not shown in final output.
-  % The following shows typesetting power of LaTeX:
-  \begin{align}
-    E_0 &= mc^2                              \\
-    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
-  \LaTeX{} is a document preparation system for the \TeX{}
-  typesetting program. It offers programmable desktop
-  publishing features and extensive facilities for
-  automating most aspects of typesetting and desktop
-  publishing, including numbering and cross-referencing,
-  tables and figures, page layout, bibliographies, and
-  much more. \LaTeX{} was originally written in 1984 by
-  Leslie Lamport and has become the dominant method for
-  using \TeX; few people write in plain \TeX{} anymore.
-  The current version is \LaTeXe.
-
-  % This is a comment, not shown in final output.
-  % The following shows typesetting power of LaTeX:
-  \begin{align}
-    E_0 &= mc^2                              \\
-    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
-  \LaTeX{} is a document preparation system for the \TeX{}
-  typesetting program. It offers programmable desktop
-  publishing features and extensive facilities for
-  automating most aspects of typesetting and desktop
-  publishing, including numbering and cross-referencing,
-  tables and figures, page layout, bibliographies, and
-  much more. \LaTeX{} was originally written in 1984 by
-  Leslie Lamport and has become the dominant method for
-  using \TeX; few people write in plain \TeX{} anymore.
-  The current version is \LaTeXe.
-
-  % This is a comment, not shown in final output.
-  % The following shows typesetting power of LaTeX:
-  \begin{align}
-    E_0 &= mc^2                              \\
-    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
-  \end{align}
+  LOLOLOL
+  \subsection{LLooasd}
+  \lipsum[1-20]
 \end{document}
